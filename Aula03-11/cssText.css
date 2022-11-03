@@ -1,0 +1,18 @@
+body{
+    font-family: sans-serif;
+    background-color: var(--color-fundo);
+}
+
+body[data-tema="t-claro"]{
+    --color-texto: black;
+    --color-fundo: #ffffff;
+}
+
+body[data-tema="t-escuro"]{
+    --color-texto: #ffffff;
+    --color-fundo: black;
+}
+
+.titulo{
+    color: var(--color-texto);
+}
