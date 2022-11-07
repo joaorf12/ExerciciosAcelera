@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 10</title>
+    <script>
+        function testa(){
+            if(document.getElementById("fisica").checked){
+                document.getElementById("cpf").disabled= false;
+                document.getElementById("cnpj").disabled= true;
+                document.getElementById("nasc").disabled= false;
+            }
+            else{
+                document.getElementById("cnpj").disabled= false;
+                document.getElementById("cpf").disabled= true;
+                document.getElementById("nasc").disabled= true;
+            }
+        }
+        function somenteNumeros(e) {
+        var charCode = e.charCode ? e.charCode : e.keyCode;
+        if (charCode != 8 && charCode != 9) {
+            if (charCode < 48 || charCode > 57) {
+                return false;
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <form method="post" action="#">
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" id="nome"></br>
+        <label for="fisica">Pessoa Fisica </label>
+        <input type="radio" name="tipo" id="fisica" onclick="testa()"></br>
+        <label for="juridica">Pessoa Juridica </label>
+        <input type="radio" name="tipo" id="juridica" onclick="testa()"></br>
+        <label for="cpf">CPF: </label>
+        <input type="text" name="cpf" id="cpf"></br>
+        <label for="cnpj">CNPJ: </label>
+        <input type="text" name="cnpj" id="cnpj"></br>
+        <label for="nasc">Data de Nascimento: </label>
+        <input type="text" name="nasc" id="nasc" onkeypress="return somenteNumeros(event)"></br>
+        <label for="end">Endereço: </label>
+        <input type="text" name="end" id="end"></br>
+        <label for="cep">CEP: </label>
+        <input type="text" name="cep" id="cep" onkeypress="return somenteNumeros(event)"></br>
+        <label for="tel">Telefone: </label>
+        <input type="text" name="tel" id="tel"></br>
+        <label for="email">Email: </label>
+        <input type="email" name="email" id="email"></br>
+
+        <button onclick="">Cadastrar</button>
+    </form>
+</body>
+</html>

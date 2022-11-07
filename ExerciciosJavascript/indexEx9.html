@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 9</title>
+    <script>
+        function confCad(){
+            var login= document.querySelector('input[id="login"]').value;
+            var senha= document.getElementById("senha").value;
+            var conf= document.getElementById("conf").value;
+            var tamanho= senha.length;
+            if( login.value === "" || senha === "" || conf === ""){
+                alert("Preencha todos os campos!")
+            }
+            else{
+                if(senha === conf){
+                    if( tamanho >= 6 ){
+                        if(tamanho <= 10){
+                            alert("Cadastro Feito");
+                        }
+                        else{
+                            alert("Senha maior que 10 digitos")
+                        }
+                        
+                    }
+                    else{
+                        alert("Senha menor que 6 digitos");
+                    }
+                }
+                else{
+                    alert("As senhas não estão iguais");
+                }
+            }
+        }
+        function senha(){
+            var tipo= document.querySelector("input[name= 'senha']").type;
+            if( tipo === 'text'){
+                document.getElementById("senha").type= "password";
+                document.getElementById("conf").type= "password";
+            }
+            else{
+                document.getElementById("senha").type= "text";
+                document.getElementById("conf").type= "text";
+            }
+        }
+    </script>
+</head>
+<body>
+    <form method="post" action="##">
+        <label for="login">Login: </label>
+        <input name="login" id="login" type="text"><br>
+        <label for="senha">Senha: </label>
+        <input name="senha" id="senha" type="password"><br>
+        <label for="conf">Confirmar Senha: </label>
+        <input name="conf" id="conf" type="password"><br>
+        <input type="submit" onclick="confCad()" value="Cadastrar">
+    </form>
+    <button onclick="senha()">Ver senha</button>
+    
+</body>
+</html>

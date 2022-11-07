@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botãos</title>
+    <script>
+        function ltrPreta(){
+            document.querySelector('p').style.color= "#000000";
+        }
+        function ltrBranca(){
+            document.querySelector('p').style.color= '#ffffff';
+        }
+        function bcBranco(){
+            document.getElementById("p").style.backgroundColor= "#ffffff";
+        }
+        function bcPreto(){
+            document.getElementById("p").style.backgroundColor= "#000000";
+        }
+        
+        function aumenta(){
+            var elemento = document.getElementById('p1'); // ou $('#elemento')[0]
+            var estilos = window.getComputedStyle(elemento, null);
+            var tamanho = estilos.getPropertyValue('font-size');
+            tamanho.replace("px","");
+            tamanho= parseInt(tamanho);
+            if( tamanho < 44){
+                document.querySelector('p').style.fontSize= (tamanho+1)+"px";
+            }
+            
+        }
+
+        function diminui(){
+            var elemento = document.getElementById('p1'); // ou $('#elemento')[0]
+            var estilos = window.getComputedStyle(elemento, null);
+            var tamanho = estilos.getPropertyValue('font-size');
+            tamanho.replace("px","");
+            tamanho= parseInt(tamanho);
+            if( tamanho > 15){
+                document.querySelector('p').style.fontSize= (tamanho-1)+"px";
+            }
+            
+        }
+
+        function maior(){
+            var texto= document.getElementById('p1').textContent;
+            document.getElementById('p1').textContent= texto.toUpperCase();
+        }
+
+        function menor(){
+            var texto= document.getElementById('p1').textContent;
+            document.getElementById('p1').textContent= texto.toLowerCase();
+        }
+    </script>
+    <style>
+        #p{
+            width: 45%;
+            height: 10%;
+            margin-left: 27.5%;
+            margin-right: 27.5%;
+            text-align: center;
+            font-size: 32px;
+            border-bottom: 1px solid black;
+        }
+        #botoes{
+            margin-top: 1%;
+            margin-left: auto;
+            margin-left: auto;
+            text-align: center;
+            font-size: 24px;
+        }
+        #p1{
+            font-size: 32px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="p">
+        <p id="p1">Conteudo Exercicio</p>
+    </div>
+    <div id="botoes">
+        <button onclick="ltrPreta()">Preto</button>
+        <button onclick="ltrBranca()">Branco</button>
+        <button onclick="bcPreto()">Fundo Preto</button>
+        <button onclick="bcBranco()">Fundo Branco</button>
+    </div>
+    <div id="botoes">
+        <button onclick="aumenta()">+</button>
+        <button onclick="diminui()">-</button>
+    </div>
+    <div id="botoes">
+        <button onclick="maior()">Maiuscula</button>
+        <button onclick="menor()">Minuscula</button>
+    </div>
+    
+</body>
+</html>
