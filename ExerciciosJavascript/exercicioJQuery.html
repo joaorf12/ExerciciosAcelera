@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script>
+        var tamanho;
+        $(document).ready(function(){
+            $("p").click(function(){
+                $(this).hide();
+            })
+        });
+
+        $(document).ready(function (){
+            $('#botao1').click(function(){
+                var cor= $('p').css('color');
+                
+                if( cor == 'rgb(0, 0, 0)'){
+                   $("p").attr("style", "color: white");
+                   
+                }
+                else{
+                    $("p").css("color", "black");
+                }
+                $('p').css("font-size", tamanho+"px");
+            });
+
+        $('#botao2').click(function(){
+                var cor= $('#p1').css('background-color');
+                if( cor == 'rgb(0, 0, 0)'){
+                    $("#p1").attr("style", "background-color: white");
+                }
+                else{
+                    $("#p1").css("background-color", "black");
+                }
+            });
+            
+        $('#maior').click(function(){
+                tamanho= $('p').css('font-size');
+                tamanho= tamanho.replace("px", "");
+                tamanho= parseInt(tamanho) + 1;
+                if( tamanho <= 44 ){
+                    $('p').attr("style", "font-size: "+tamanho+"px");
+                }
+            });
+
+        $("#menor").click(function (){
+                tamanho= $('p').css('font-size');
+                tamanho= tamanho.replace("px", "");
+                tamanho= parseInt(tamanho) - 1;
+                if( tamanho >= 15 ){
+                    $('p').attr("style", "font-size: "+tamanho+"px");
+                }
+            });
+
+        $('#maiuscula').click(function (){
+            var texto= $('p').text();
+            texto = texto.toUpperCase();
+            $('p').text(texto);
+        });
+
+        $('#minuscula').click(function (){
+            var texto= $('p').text();
+            texto = texto.toLowerCase();
+            $('p').text(texto);
+        });
+        });
+    </script>
+</head>
+<body>
+    <div id="p1">
+        <p>Esconder</p>
+    </div>
+    <button id="botao1">Mudar para Branco ou Preto</button>
+    <button id="botao2">Mudar Fundo para Branco ou Preto</button>
+    <button id="maior">+</button>
+    <button id="menor">-</button>
+    <button id="maiuscula">Maiuscula</button>
+    <button id="minuscula">Minuscula</button>
+</body>
+</html>
