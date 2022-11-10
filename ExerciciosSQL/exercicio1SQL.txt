@@ -1,0 +1,60 @@
+create table autor (
+	id serial primary key,
+	nome varchar(50),
+	nacionalidade varchar(50)
+);
+
+create table categoria (
+	id serial primary key,
+	tipo_categoria varchar(20)
+);
+
+create table editora (
+	id serial primary key,
+	nome varchar(50)
+);
+
+create table livro (
+	isbn bigint primary key,
+	titulo varchar(50),
+	ano_publi int,
+	id_editora int,
+	id_categoria int,
+	foreign key (id_editora) references editora (id),
+	foreign key (id_categoria) references categoria (id)
+);
+
+create table livroAutor (
+	id serial primary key,
+	isbn_livro bigint,
+	id_autor int,
+	foreign key (isbn_livro) references livro (isbn),
+	foreign key (id_autor) references autor (id)
+);
+
+insert into autor (nome, nacionalidade) values ('J. K. Rowling', 'Inglaterra');
+insert into autor (nome, nacionalidade) values ('Clive Staples Lewis', 'Inglaterra');
+insert into autor (nome, nacionalidade) values ('Affonso Solano', 'Brasil');
+insert into autor (nome, nacionalidade) values ('Marcos Piangers', 'Brasil');
+insert into autor (nome, nacionalidade) values ('Ciro Botelho', 'Brasil');
+insert into autor (nome, nacionalidade) values ('Bianca Mól', 'Brasil');
+
+insert into categoria (tipo_categoria) values ('Literatura Juvenil');
+insert into categoria (tipo_categoria) values ('Ficção Cientifica');
+insert into categoria (tipo_categoria) values ('Humor');
+
+insert into editora (nome) values ('Rocco');
+insert into editora (nome) values ('Wmf Martins Fontes');
+insert into editora (nome) values ('Casa da Palavra');
+insert into editora (nome) values ('Bela Letras');
+insert into editora (nome) values ('Matrix');
+
+insert into livro values (8532511015, 'Harry Potter e A Pedra Filosofal', 2000, 1, 1);
+insert into livro values (9788578270698, 'As Crônicas de Nárnia', 2009, 2, 1);
+insert into livro values (9788577343348, 'O Espadachim de Carvão', 2013, 3, 2);
+insert into livro values (9788581742458, 'O Papai É Pop', 2015, 4, 3);
+insert into livro values (9788582302026, 'Pior Que Tá Não Fica', 2015, 5, 3);
+insert into livro values (9788577345670, 'Garota Desdobrável', 2015, 3, 1);
+insert into livro values (8532512062, 'Harry Potter e o prisioneiro de Azkaban', 2000, 1, 1);
+
+
