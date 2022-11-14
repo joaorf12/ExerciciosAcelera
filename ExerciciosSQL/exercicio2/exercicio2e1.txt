@@ -1,0 +1,27 @@
+create table mae(
+	id int primary key,
+	nome varchar(50),
+	data_nasc date,
+	telefone varchar(12),
+	endereco varchar(50)
+);
+
+create table medico(
+	id int primary key,
+	nome varchar(50),
+	crm varchar(20),
+	tel_cel varchar(12),
+	espec varchar(30)
+);
+
+create table bebe(
+	id int primary key,
+	nome varchar(50),
+	data_nasc date,
+	peso_nasc float,
+	altura_nasc float,
+	id_mae int,
+	id_medico int,
+	foreign key (id_mae) references mae (id),
+	foreign key (id_medico) references medico (id)
+);
