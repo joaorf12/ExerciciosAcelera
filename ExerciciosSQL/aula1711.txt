@@ -78,7 +78,10 @@ select distinct marcas.marca from marcas, carros
 where marcas.id= carros.marca and 3 < (select count(*) from carros
 				 	where marcas.id= carros.marca)
 
-
+select marcas.marca from marcas
+	join carros on carros.marca= marcas.id
+	group by marcas.marca
+	having count(carros.modelo) > 3;
 
 
 
