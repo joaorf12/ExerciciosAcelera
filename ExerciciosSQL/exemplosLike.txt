@@ -1,0 +1,8 @@
+update livro set titulo = 'Harry Potter e a Pedra Filosofal' where titulo like 'Harry%'
+
+begin;
+update livro set titulo = 'Harry Potter e a Pedra Filosofal' where titulo not like 'Harry%'
+
+select * from livro
+
+rollback;
